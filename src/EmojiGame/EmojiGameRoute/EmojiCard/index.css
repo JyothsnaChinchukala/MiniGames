@@ -1,0 +1,45 @@
+.eachEmojiContainer {
+  /* Rectangle 528 */
+  position: relative;
+  box-sizing: border-box;
+  width: 20%;
+  height: 30%;
+  margin-right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.19);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 24px;
+  list-style-type: none;
+  display: flex;
+  flex-grow: 1;
+}
+
+.emojiImg {
+  /* Emoji */
+  position: absolute;
+  height: 100px;
+  width: 100px;
+}
+.emojiImgBtn {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 678px) {
+  .eachEmojiContainer {
+    /* Rectangle 528 */
+    height: 20%;
+  }
+  .emojiImg {
+    /* Emoji */
+    position: absolute;
+    height: 40px;
+    width: 40px;
+  }
+}

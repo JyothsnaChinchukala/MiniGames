@@ -1,0 +1,237 @@
+.emojiGameBgContainer {
+  /* Emoji_Rules */
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(179.51deg, #9796f0 0.41%, #fbc7d4 128.48%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 6%;
+}
+.BackContainer {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+  width: 100%;
+  height: 8%;
+  background: transparent;
+  border: none;
+}
+.arrowIcon {
+  /*  arrow-left */
+
+  width: 24px;
+  height: 24px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.backContent {
+  /* Text */
+
+  width: 45px;
+  height: 32px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+  /* identical to box height, or 160% */
+
+  /* Light / blue-gray / 700 */
+  color: #334155;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.GameRulesContainer {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.19);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3%;
+}
+.rulesEmojiContainer {
+  /* Group 7428 */
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.rulesCardEmoji {
+  /* Asset 1@4x 1 */
+
+  width: 100%;
+  height: 50%;
+  order: 0;
+}
+.emojiGameText {
+  /* Pricing */
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 64px;
+  order: 1;
+  /* identical to box height, or 133% */
+
+  /* Light / blue-gray / 700 */
+  color: #334155;
+}
+.RulesContentContainer {
+  /* Group 7606 */
+  width: 65%;
+  height: 100%;
+  padding-left: 3%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.rulesText {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: 0%;
+  color: #334155;
+  align-self: center;
+  order: 0;
+}
+
+.eachRuleContainer {
+  width: 100%;
+  font-family: Roboto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 0px;
+  order: 1;
+  position: relative;
+}
+.eachRules {
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+}
+.dotContainer {
+  width: 4%;
+  height: 100%;
+  display: flex;
+}
+.dotEl {
+  height: 20px;
+  width: 20px;
+  align-self: center;
+}
+.eachRuleText {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0px;
+  color: #475569;
+  align-self: flex-start;
+  padding-top: 0px;
+}
+.startPlayingBtn {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 8px;
+  background: #334155;
+  border-radius: 12px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  align-self: center;
+}
+.startPlayingText {
+  /* Elements */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 678px) {
+  .emojiGameBgContainer {
+    padding: 5%;
+  }
+  .backContent {
+    font-size: 14px;
+  }
+  .GameRulesContainer {
+    flex-direction: column;
+    height: 92%;
+  }
+
+  .rulesEmojiContainer {
+    height: 30%;
+    width: 100%;
+  }
+  .rulesCardEmoji {
+    width: 60%;
+    height: 60%;
+  }
+  .emojiGameText {
+    font-size: 20px;
+    margin-top: 0;
+    letter-spacing: 0px;
+    order: 1;
+  }
+
+  .RulesContentContainer {
+    /* Group 7606 */
+    width: 100%;
+    height: 100%;
+    padding-left: 3%;
+    display: flex;
+    flex-direction: column;
+  }
+  .rulesText {
+    font-size: 18px;
+    margin-top: 0;
+   
+  }
+  .eachRuleContainer {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+  .eachRuleText {
+    font-size: 12px;
+    padding-top: 0px;
+  }
+  
+  .startPlayingText {
+    font-size: 12px;
+  }
+}

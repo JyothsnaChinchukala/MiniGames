@@ -1,0 +1,61 @@
+.CFResultsViewBgContainer {
+  width: 100vw;
+  height: 100vh;
+  background: #14332e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wonImg {
+  width: 180px;
+  height: 180px;
+}
+.CFResultViewHeader {
+  font-family: 'Bree Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 64px;
+  /* identical to box height, or 133% */
+
+  /* Light / green / 400 */
+  color: #4ade80;
+}
+.CFResultViewCount {
+  font-family: Bree Serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #ffffff;
+}
+.CFResultViewDescription {
+  font-family: Bree Serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 48px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 678px) {
+  .wonImg {
+    width: 80px;
+    height: 80px;
+  }
+  .CFResultViewHeader {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .CFResultViewCount {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .CFResultViewDescription {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

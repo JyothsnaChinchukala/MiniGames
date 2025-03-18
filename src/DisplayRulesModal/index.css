@@ -1,0 +1,43 @@
+.buttonEl {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  border: none !important;
+  background-color: transparent !important;
+  align-self: flex-end !important;
+}
+.closeIcon {
+  width: 24px !important;
+  height: 24px !important;
+  color: #475569 !important;
+}
+
+.rulesTextEll {
+  /* Elements */
+
+  /* Auto layout */
+  display: block;
+  padding-bottom: 10px;
+  gap: 8px;
+  /* Inside auto layout */
+  flex: none;
+  flex-grow: 0;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.RulesBtnStyle {
+  box-sizing: border-box;
+
+  /* Auto layout */
+  width: 62px;
+  height: 32px;
+  /* Light / blue-gray / 700 */
+  border-radius: 8px;
+  background: transparent;
+  /* Inside auto layout */
+  flex: none;
+  flex-grow: 0;
+}

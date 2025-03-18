@@ -1,0 +1,184 @@
+.rpsResultViewBgContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6%;
+  background: #223a5f;
+}
+.rpsResultViewHeader {
+  font-family: 'Bree Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 65px;
+  color: #ffffff;
+  order: 0;
+}
+.rpsScoreContainer {
+  width: 60%;
+  height: 20%;
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  padding: 1%;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  order: 1;
+}
+.listsInScoreContainer {
+  width: 35%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.textContent {
+  font-family: 'Bree Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
+  list-style-type: none;
+}
+.resultEmojiImg {
+  width: 30%;
+  height: 100%;
+}
+.emojiImgEl {
+  width: 100%;
+  height: 100%;
+}
+.scoreValueContainer {
+  width: 25%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Shadow 1 */
+  box-shadow: 0px 4px 16px rgba(126, 133, 142, 0.16);
+  border-radius: 12px;
+}
+.scoreText {
+  font-family: Bree Serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0%;
+}
+.scoreValue {
+  font-family: HK Grotesk;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0%;
+}
+.youAndOpponentContainer {
+  width: 60%;
+  padding-left: 14%;
+  padding-right: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  order: 2;
+}
+.youText {
+  font-family: Bree Serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32.59px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #ffffff;
+}
+.rpsFinalResultsContainer {
+  width: 55%;
+  height: 20%;
+  order: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selectedImgContainer {
+  width: 30%;
+  height: 100%;
+}
+.emoji {
+  width: 100%;
+  height: 100%;
+}
+.groupContainer {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.smallEmojiImg {
+  width: 36px;
+  height: 36px;
+}
+.youWonText {
+  font-family: 'Bree Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  color: #ffffff;
+  order: 0;
+  text-align: center;
+}
+.rpsPlayAgainBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 8px;
+
+  width: 120px;
+  height: 46px;
+
+  /* General/White */
+  background: #ffffff;
+  border-radius: 12px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+@media screen and (max-width: 678px) {
+  .rpsResultViewHeader {
+    font-size: 32px;
+  }
+  .listsInScoreContainer {
+    justify-content: center;
+  }
+  .youWonText {
+    font-size: 18px;
+  }
+  .youAndOpponentContainer {
+    width: 100%;
+  }
+  .rpsFinalResultsContainer {
+    width: 100%;
+  }
+  .rpsScoreContainer {
+    width: 100%;
+  }
+  .youText {
+    font-size: 20px;
+  }
+  .rpsPlayAgainBtn {
+    width: 110px;
+    height: 46px;
+  }
+}

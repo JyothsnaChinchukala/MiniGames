@@ -1,0 +1,60 @@
+.rpsPlayingViewBgContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 6%;
+  background: #223a5f;
+  overflow: auto;
+}
+.rpsPlayingViewBottomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+.rpsRulesViewHeader1 {
+  /* Let’s pick */
+
+  font-family: 'Bree Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 65px;
+  color: #ffffff;
+}
+.rpsRulesWithImgsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 50%;
+  align-self: center;
+}
+.eachRpsButton {
+  border: none;
+  background-color: transparent;
+  background: transparent;
+  width: 30%;
+  height: 100%;
+  padding: 0;
+  align-self: center;
+  cursor: pointer;
+}
+.eachImgWithBtn {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 678px) {
+  .rpsRulesViewHeader1 {
+    font-size: 32px;
+  }
+  .rpsRulesWithImgsContainer {
+    width: 70%;
+    height: 45%;
+  }
+}
