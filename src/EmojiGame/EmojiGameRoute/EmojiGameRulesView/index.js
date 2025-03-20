@@ -1,5 +1,5 @@
 import {BiArrowBack} from 'react-icons/bi'
-import {BsDot} from 'react-icons/bs'
+// import {BsDot} from 'react-icons/bs'
 import {EmojiGameRuleSet} from '../../../AllGameRules'
 import './index.css'
 
@@ -39,7 +39,7 @@ const EmojiGameRulesView = props => {
             {EmojiGameRuleSet.map(eachRule => (
               <li key={eachRule.id} className="eachRules">
                 <div className="dotContainer">
-                  <BsDot className="dotEl" />
+                  <p className="dotEl">.</p>
                 </div>
                 <p className="eachRuleText">{eachRule.rule}</p>
               </li>

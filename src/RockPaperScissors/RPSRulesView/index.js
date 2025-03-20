@@ -1,5 +1,5 @@
 import {BiArrowBack} from 'react-icons/bi'
-import {BsDot} from 'react-icons/bs'
+// import {BsDot} from 'react-icons/bs'
 import {RpsRuleSet1, RpsRuleSet2} from '../../AllGameRules'
 import './index.css'
 
@@ -79,7 +79,7 @@ const RPSRulesView = props => {
             {RpsRuleSet1.map(eachRule => (
               <li key={eachRule.id} className="rpsEachRules">
                 <div className="rpsDotContainer">
-                  <BsDot className="dotEl" />
+                  <p className="dotEl">.</p>
                 </div>
                 <p className="rpsEachRuleText">{eachRule.rule}</p>
               </li>
@@ -89,7 +89,7 @@ const RPSRulesView = props => {
             {RpsRuleSet2.map(eachRule => (
               <li key={eachRule.id} className="rpsEachRules">
                 <div className="rpsDotContainer">
-                  <BsDot className="dotEl" />
+                  <p className="dotEl">.</p>
                 </div>
                 <p className="rpsEachRuleText">{eachRule.rule}</p>
               </li>

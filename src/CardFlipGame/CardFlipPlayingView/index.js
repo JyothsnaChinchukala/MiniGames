@@ -1,4 +1,3 @@
-import {v4 as uuidv4} from 'uuid'
 import {Component} from 'react'
 import {BiArrowBack} from 'react-icons/bi'
 import DisplayRulesModal from '../../DisplayRulesModal'
@@ -87,7 +86,7 @@ class CardFlipPlayingView extends Component {
     const doubledCardsData = [...CardsData, ...CardsData]
     let updatedCardsData = []
     updatedCardsData = doubledCardsData.map(each => ({
-      id: uuidv4(),
+      id: Math.random().toString(36).substr(2, 9),
       name: each.name,
       image: each.image,
     }))

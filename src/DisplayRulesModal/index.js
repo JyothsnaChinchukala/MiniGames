@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {IoIosClose} from 'react-icons/io'
+import {CgClose} from 'react-icons/cg'
 import Modal from 'react-modal'
 import RulesContentOfModal from '../RulesContentOfModal'
 import './index.css'
@@ -46,7 +46,7 @@ const DisplayRulesModal = props => {
           data-testid="close"
           onClick={() => setModalIsOpen(false)}
         >
-          <IoIosClose className="closeIcon" />
+          <CgClose className="closeIcon" />
         </button>
         <h1 className="rulesTextEll">Rules</h1>
         <RulesContentOfModal ruleSet1={ruleSet1} ruleSet2={ruleSet2} />

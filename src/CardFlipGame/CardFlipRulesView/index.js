@@ -1,5 +1,5 @@
 import {BiArrowBack} from 'react-icons/bi'
-import {BsDot} from 'react-icons/bs'
+// import {BsDot} from 'react-icons/bs'
 import {CFRuleSet1, CFRuleSet2} from '../../AllGameRules'
 import './index.css'
 
@@ -38,7 +38,7 @@ const CardFlipRulesView = props => {
             {CFRuleSet1.map(eachRule => (
               <li key={eachRule.id} className="rpsEachRules">
                 <div className="rpsDotContainer">
-                  <BsDot className="dotEl" />
+                  <p className="dotEl">.</p>
                 </div>
                 <p className="rpsEachRuleText">{eachRule.rule}</p>
               </li>
@@ -48,7 +48,7 @@ const CardFlipRulesView = props => {
             {CFRuleSet2.map(eachRule => (
               <li key={eachRule.id} className="rpsEachRules">
                 <div className="rpsDotContainer">
-                  <BsDot className="dotEl" />
+                  <p className="dotEl">.</p>
                 </div>
                 <p className="rpsEachRuleText">{eachRule.rule}</p>
               </li>
