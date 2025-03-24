@@ -8,7 +8,7 @@ const HomeRoute = () => (
       <Link to="/emoji-game" className="linkEl gameCard">
         <li className="listItem">
           <img
-            src="https://res.cloudinary.com/dikncs8sp/image/upload/v1740473984/Asset_1_4x_1_x5epar.jpg"
+            src="https://res.cloudinary.com/dikncs8sp/image/upload/v1740552322/Asset_1_4x_1_1_zfhwdj.jpg"
             alt="emoji game"
             className="eachEmoji"
           />
@@ -19,7 +19,7 @@ const HomeRoute = () => (
         <li className="listItem">
           <p className="gameCardContent2">Memory Matrix</p>
           <img
-            src="https://res.cloudinary.com/dikncs8sp/image/upload/v1740475660/memory_gidu5i.jpg"
+            src="https://res.cloudinary.com/dikncs8sp/image/upload/v1741083214/memory_wfy0ez.png"
             alt="memory matrix"
             className="eachEmoji2"
           />
