@@ -93,6 +93,11 @@
   justify-content: center;
   align-items: center;
 }
+.cfEachRules {
+  display: flex;
+  width: 100%;
+  margin-left: 0;
+}
 .beatsText {
   font-family: 'Bree Serif';
   font-style: normal;
@@ -216,11 +221,12 @@
   order: 1;
 }
 .rpseachRuleSetContainer {
-  width: 50%;
+  width: 100%;
   height: 100%;
   color: #ffffff;
+  list-style-type: disc;
 }
-.rpsDotContainer {
+.dotContainer {
   width: 4%;
   height: 100%;
   display: flex;
@@ -255,7 +261,22 @@
 .rpsEachRules {
   display: flex;
   width: 100%;
-  margin-left: 0;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0px;
+  align-self: flex-start;
+  font-family: 'Bree Serif';
+  margin-top: 0px;
+  list-style-type: disc;
+}
+.cfEachRuleText {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  align-self: flex-start;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 @media screen and (max-width: 678px) {
@@ -306,9 +327,12 @@
     /* Button */
     align-self: center;
   }
+  .cfEachRuleText {
+    font-size: 12px;
+  }
 }
 @media screen and (max-width: 376px) {
-  .rpsEachRuleText {
+  .cfEachRuleText {
     font-size: 8px;
   }
 }

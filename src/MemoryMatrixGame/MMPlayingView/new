@@ -154,43 +154,52 @@ class MMPlayingView extends Component {
         memoryMatrixList: listsOfMatrix,
       },
       () => {
-        this.getResultPage()
+        setTimeout(() => {
+          this.getResultPage()
+        }, 500)
       },
     )
   }
 
-  getMaskedBoxes = callback => {
-    const {n} = this.state
+  getMaskedBoxes = () => {
+    const {n, availableIndex, randomIndex} = this.state
     const listsOfMatrix = []
-    const availableIndex = []
-    const randomIndex = new Set()
+    const uniqueRandomIndex = new Set()
 
-    // Generate Unique Random Indices
-    while (randomIndex.size < n) {
+    console.log(`Starting While Loop with n=${n}`)
+
+    while (uniqueRandomIndex.size < n) {
       const selectedRandomId = Math.floor(Math.random() * (n * n))
-      randomIndex.add(selectedRandomId)
+      uniqueRandomIndex.add(selectedRandomId)
     }
 
-    const randomIndexArray = Array.from(randomIndex)
+    randomIndex.push(...Array.from(uniqueRandomIndex))
 
-    // Create Grid
+    for (let i = 0; i < n; i += 1) {
+      for (let j = 0; j < n; j += 1) {
+        availableIndex.push(`${i}${j}`)
+      }
+    }
+
     for (let i = 0; i < n; i += 1) {
       const eachMatrixRow = []
       for (let j = 0; j < n; j += 1) {
-        const id = `${i}${j}`
-        availableIndex.push(id)
-
-        const currentIndex = i * n + j
-        const isHighlighted = randomIndexArray.includes(currentIndex)
-        const backgroundColor = isHighlighted ? 'selectedBox' : 'normalBox'
-
+        let backgroundColor = 'normalBox'
+        const updatedBlueBoxes = randomIndex.map(each => availableIndex[each])
+        if (updatedBlueBoxes.includes(`${i}${j}`)) {
+          backgroundColor = 'selectedBox'
+        }
         eachMatrixRow.push({
-          id,
+          id: `${i}${j}`,
           content: (
             <button
               type="button"
               className={`eachBox ${backgroundColor}`}
-              data-testid={isHighlighted ? 'highlighted' : 'notHighlighted'}
+              data-testid={
+                backgroundColor === 'selectedBox'
+                  ? 'highlighted'
+                  : 'notHighlighted'
+              }
               aria-label="matrix-box"
               disabled
             />
@@ -200,25 +209,18 @@ class MMPlayingView extends Component {
       listsOfMatrix.push(eachMatrixRow)
     }
 
-    this.setState(
-      {
-        memoryMatrixList: listsOfMatrix,
-        availableIndex,
-        randomIndex: randomIndexArray,
-      },
-      callback,
-    )
+    this.setState({
+      memoryMatrixList: listsOfMatrix,
+    })
   }
 
   getUnMaskedBoxes = () => {
-    const {n} = this.state
+    const {n, userSelectedBoxes} = this.state
 
     const checkForCorrectClickedBox = () => {
-      this.setState(({userSelectedBoxes}) => {
-        if (userSelectedBoxes.length === 0 || userSelectedBoxes.length < n) {
-          this.getResultPage()
-        }
-      })
+      if (userSelectedBoxes.length === 0 || userSelectedBoxes.length < n) {
+        this.getResultPage()
+      }
     }
 
     const setUnselectedBoxes = () => {
@@ -242,21 +244,21 @@ class MMPlayingView extends Component {
         }
         listsOfUnMaskedMatrix.push(eachMatrixRow)
       }
-
-      this.setState({memoryMatrixList: listsOfUnMaskedMatrix}, () => {
-        if (this.timeoutRef) clearTimeout(this.timeoutRef) // ✅ Clear previous timer
-        this.timeoutRef = setTimeout(checkForCorrectClickedBox, n * 1000)
-      })
+      this.setState({memoryMatrixList: listsOfUnMaskedMatrix})
+      if (this.timeoutRef) clearTimeout(this.timeoutRef)
+      this.timeoutRef = setTimeout(() => {
+        checkForCorrectClickedBox()
+      }, n * 1000)
     }
-
-    if (this.timeoutRef) clearTimeout(this.timeoutRef) // ✅ Clear previous timer
-    this.timeoutRef = setTimeout(setUnselectedBoxes, n * 1000)
+    if (this.timeoutRef) clearTimeout(this.timeoutRef)
+    this.timeoutRef = setTimeout(() => {
+      setUnselectedBoxes()
+    }, n * 1000)
   }
 
   componentDidMount = () => {
-    this.getMaskedBoxes(() => {
-      this.getUnMaskedBoxes()
-    })
+    this.getMaskedBoxes()
+    this.getUnMaskedBoxes()
   }
 
   getMatrix = () => {

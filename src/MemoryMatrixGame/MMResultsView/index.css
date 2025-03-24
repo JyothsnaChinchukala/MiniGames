@@ -66,6 +66,7 @@
   flex: none;
   order: 2;
   flex-grow: 0;
+  color: #ffffff;
 }
 .levelsContainer {
   display: flex;

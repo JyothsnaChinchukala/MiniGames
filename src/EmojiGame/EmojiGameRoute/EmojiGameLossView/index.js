@@ -22,8 +22,8 @@ const EmojiGameLossView = props => {
         <div className="lossViewContainer">
           <div className="lossViewTextContainer">
             <h1 className="youLoseText">You Lose</h1>
-            <p className="bestScoreText">Best Score</p>
-            <h1 className="scoreValue">{`0${score}/12`}</h1>
+            <p className="bestScoreText">Score</p>
+            <p className="scoreValue">{`0${score}/12`}</p>
             <button
               className="playAgainBtn"
               type="button"

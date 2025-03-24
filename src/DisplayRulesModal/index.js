@@ -1,18 +1,18 @@
-import {useState} from 'react'
 import {CgClose} from 'react-icons/cg'
+import {useState} from 'react'
 import Modal from 'react-modal'
 import RulesContentOfModal from '../RulesContentOfModal'
 import './index.css'
 
 // Accessibility: Bind modal to the root app element
-Modal.setAppElement('#root')
+// Modal.setAppElement('#root')
 
 const DisplayRulesModal = props => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const {ruleSet1, ruleSet2, setRulesColor} = props
 
   return (
-    <div>
+    <>
       <button
         type="button"
         className="RulesBtnStyle"
@@ -21,7 +21,7 @@ const DisplayRulesModal = props => {
           setModalIsOpen(true)
         }}
       >
-        <p className="rulesTextEl">Rules</p>
+        Rules
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -39,19 +39,21 @@ const DisplayRulesModal = props => {
           },
         }}
       >
-        <button
-          type="button"
-          aria-label="Close Modal"
-          className="buttonEl"
-          data-testid="close"
-          onClick={() => setModalIsOpen(false)}
-        >
-          <CgClose className="closeIcon" />
-        </button>
+        <div style={{textAlign: 'end'}}>
+          <button
+            type="button"
+            aria-label="Close Modal"
+            className="buttonEl"
+            data-testid="close"
+            onClick={() => setModalIsOpen(false)}
+          >
+            <CgClose />
+          </button>
+        </div>
         <h1 className="rulesTextEll">Rules</h1>
         <RulesContentOfModal ruleSet1={ruleSet1} ruleSet2={ruleSet2} />
       </Modal>
-    </div>
+    </>
   )
 }
 

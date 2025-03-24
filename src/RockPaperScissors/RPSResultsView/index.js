@@ -17,7 +17,7 @@ const RPSResultsView = props => {
 
   const getWonResultView = () => (
     <div className="rpsResultViewBgContainer">
-      <h1 className="rpsResultViewHeader">ROCK PAPER SCISSOR</h1>
+      <h1 className="rpsResultViewHeader">Rock Paper Scissor</h1>
       <div className="rpsScoreContainer">
         <ul className="listsInScoreContainer">
           <li key="rock" className="textContent">
@@ -39,7 +39,7 @@ const RPSResultsView = props => {
         </div>
         <div className="scoreValueContainer">
           <p className="scoreText">Score</p>
-          <h1 className="scoreValue">{score}</h1>
+          <p className="scoreValue">{score}</p>
         </div>
       </div>
       <div className="youAndOpponentContainer">
@@ -56,7 +56,7 @@ const RPSResultsView = props => {
             alt="Smiling face with star eyes"
             className="smallEmojiImg"
           />
-          <h1 className="youWonText">YOU WON</h1>
+          <p className="youWonText">YOU WON</p>
           <button
             className="rpsPlayAgainBtn"
             type="button"
@@ -74,7 +74,7 @@ const RPSResultsView = props => {
 
   const getLoseResultView = () => (
     <div className="rpsResultViewBgContainer">
-      <h1 className="rpsResultViewHeader">ROCK PAPER SCISSOR</h1>
+      <h1 className="rpsResultViewHeader">Rock Paper Scissor</h1>
       <div className="rpsScoreContainer">
         <ul className="listsInScoreContainer">
           <li key="rock" className="textContent">
@@ -96,7 +96,7 @@ const RPSResultsView = props => {
         </div>
         <div className="scoreValueContainer">
           <p className="scoreText">Score</p>
-          <h1 className="scoreValue">{score}</h1>
+          <p className="scoreValue">{score}</p>
         </div>
       </div>
       <div className="youAndOpponentContainer">
@@ -110,10 +110,10 @@ const RPSResultsView = props => {
         <div className="groupContainer">
           <img
             src="https://res.cloudinary.com/dikncs8sp/image/upload/v1741077377/Emoji_ukcbne.png"
-            alt="Frowning face"
+            alt="Face without mouth"
             className="smallEmojiImg"
           />
-          <h1 className="youWonText">YOU LOSE</h1>
+          <p className="youWonText">YOU LOSE</p>
           <button
             className="rpsPlayAgainBtn"
             type="button"
@@ -131,7 +131,7 @@ const RPSResultsView = props => {
 
   const getDrawResultView = () => (
     <div className="rpsResultViewBgContainer">
-      <h1 className="rpsResultViewHeader">ROCK PAPER SCISSOR</h1>
+      <h1 className="rpsResultViewHeader">Rock Paper Scissor</h1>
       <div className="rpsScoreContainer">
         <ul className="listsInScoreContainer">
           <li key="rock" className="textContent">
@@ -153,7 +153,7 @@ const RPSResultsView = props => {
         </div>
         <div className="scoreValueContainer">
           <p className="scoreText">Score</p>
-          <h1 className="scoreValue">{score}</h1>
+          <p className="scoreValue">{score}</p>
         </div>
       </div>
       <div className="youAndOpponentContainer">
@@ -170,7 +170,7 @@ const RPSResultsView = props => {
             alt="Face without mouth"
             className="smallEmojiImg"
           />
-          <h1 className="youWonText">IT IS DRAW</h1>
+          <p className="youWonText">IT IS DRAW</p>
           <button
             className="rpsPlayAgainBtn"
             type="button"

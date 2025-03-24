@@ -19,16 +19,36 @@ class CardFlipPlayingView extends Component {
     firstSelectedCard: '',
     flipCardId: [],
     flipCardName: [],
+    isAllItemsDisables: false,
   }
 
-  updateTime = () => {
-    const {timer, score} = this.state
+  /* updateTime = () => {
+    const {timer, score, cardsItems} = this.state
     const updatedTimer = timer - 1
-    if (timer === 0 || score === 10) {
-      this.setState({isPlayingViewDisplayed: false})
+    if (updatedTimer === 0 || score * 2 === cardsItems.length) {
+      console.log('Stopping Game - Final Score:', score)
+      this.setState({
+        isPlayingViewDisplayed: false,
+        timer: 0,
+      })
       clearInterval(timerId)
+    } else if (updatedTimer > 0) {
+      this.setState({timer: updatedTimer})
     }
-    this.setState({timer: updatedTimer})
+  } */
+  updateTime = () => {
+    const {timer} = this.state
+    const updatedTimer = timer - 1
+
+    if (updatedTimer === 0) {
+      this.setState({
+        isPlayingViewDisplayed: false,
+        timer: 0,
+      })
+      clearInterval(timerId)
+    } else {
+      this.setState({timer: updatedTimer})
+    }
   }
 
   getTimer = () => {
@@ -60,6 +80,11 @@ class CardFlipPlayingView extends Component {
   componentDidMount = () => {
     this.getTimer()
     this.getShuffledCards()
+  }
+
+  componentWillUnmount = () => {
+    clearTimeout(timerIdd)
+    clearInterval(timerId) // ✅ Add this to prevent timing issues in tests
   }
 
   onClickingBackBtn = () => {
@@ -108,6 +133,7 @@ class CardFlipPlayingView extends Component {
       score,
       noOfFlips,
       firstSelectedCard,
+      cardsItems,
     } = this.state
     const updatedFlipCount = noOfFlips + 1
 
@@ -122,8 +148,8 @@ class CardFlipPlayingView extends Component {
       this.setState({
         flipCardId: updatedCardId,
         flipCardName: [],
-        noOfFlips: updatedFlipCount,
         firstSelectedCard: '',
+        isAllItemsDisables: false,
       })
     }
 
@@ -131,19 +157,29 @@ class CardFlipPlayingView extends Component {
       flipCardId.push(cardIndex)
       flipCardName.push(cardName)
       this.setState({
-        noOfFlips: updatedFlipCount,
         firstSelectedCard: cardIndex,
       })
     } else if (flipCardName.includes(cardName)) {
       const updatedScore = score + 1
       flipCardId.push(cardIndex)
-      this.setState({
-        score: updatedScore,
-        noOfFlips: updatedFlipCount,
-        firstSelectedCard: '',
-      })
+      this.setState(
+        {
+          score: updatedScore,
+          firstSelectedCard: '',
+          noOfFlips: updatedFlipCount,
+        },
+        () => {
+          console.log('Updated Score:', score)
+          if (updatedScore * 2 === cardsItems.length) {
+            console.log('🎉 Winning Condition Met - Stopping Immediately')
+            clearInterval(timerId) // Stop the timer
+            this.setState({isPlayingViewDisplayed: false}) // Render results immediately
+          }
+        },
+      )
     } else {
       flipCardId.push(cardIndex)
+      this.setState({noOfFlips: updatedFlipCount, isAllItemsDisables: true})
       timerIdd = setTimeout(() => {
         onClickingSecondCard()
       }, 2000)
@@ -155,60 +191,67 @@ class CardFlipPlayingView extends Component {
   }
 
   onPlayingViewEnabled = () => {
-    const {score, noOfFlips, cardsItems, flipCardId} = this.state
+    const {
+      score,
+      noOfFlips,
+      cardsItems,
+      flipCardId,
+      isAllItemsDisables,
+    } = this.state
 
     return (
       <div className="CFPlayingViewBgContainer">
-        <div className="backRulesContainer">
-          <button
-            className="rpsBackContainer"
-            type="button"
-            onClick={this.onClickingBackBtn}
-          >
-            <BiArrowBack className="rpsArrowIcon" />
-            <h1 className="rpsBackContent">Back</h1>
-          </button>
-          <div>
+        <ul className="backRulesContainer">
+          <li className="backRulesListItem" key="backContainer">
+            <button
+              className="rpsBackContainer"
+              type="button"
+              onClick={this.onClickingBackBtn}
+            >
+              <BiArrowBack className="rpsArrowIcon" />
+              <h1 className="rpsBackContent">Back</h1>
+            </button>
+          </li>
+          <li className="backRulesListItem" key="rulesContainer">
             <DisplayRulesModal
               ruleSet1={CFRuleSet1}
               ruleSet2={CFRuleSet2}
               setRulesColor="#ffffff"
             />
-          </div>
-        </div>
+          </li>
+        </ul>
         <div className="CFPlayingViewBottomContainer">
           <h1 className="CFRulesViewHeader">Card-Flip Memory Game</h1>
           <div className="cfScoreMainBgContainer">
-            <p className="flipCountText">
-              Card flip count - {noOfFlips > 9 ? noOfFlips : `0${noOfFlips}`}
-            </p>
+            <p className="flipCountText">{`Card flip count - ${noOfFlips}`}</p>
             <p className="timerVal">{this.getTimeInFormat()}</p>
-            <p className="flipCountText">
-              Score - {score >= 10 ? score : `0${score}`}
-            </p>
+            <p className="flipCountText">{`Score - ${score}`}</p>
           </div>
           <div className="gameImgsContainer">
             {cardsItems.map(card => (
-              <button
-                className={`eachCardListItem ${
-                  flipCardId.includes(card.id) ? 'flipped' : ''
-                }`}
-                type="button"
-                key={card.id}
-                onClick={() => this.onClickFlipCard(card.name, card.id)}
-                disabled={flipCardId.includes(card.id)}
-              >
-                <div className="frontCard" type="button">
-                  <img
-                    src="https://res.cloudinary.com/dikncs8sp/image/upload/v1742221046/foot-print_1_1_umdcyf.png"
-                    alt="foot print"
-                    className="eachCard"
-                  />
-                </div>
-                <div data-testid={card.name} type="button" className="cardBtn">
-                  <img src={card.image} alt={card.name} className="eachCard" />
-                </div>
-              </button>
+              <li className="cardListWithButton" key={card.id}>
+                <button
+                  className={`eachCardListItem ${
+                    flipCardId.includes(card.id) ? 'flipped' : ''
+                  }`}
+                  type="button"
+                  data-testid={card.name}
+                  onClick={() => this.onClickFlipCard(card.name, card.id)}
+                  disabled={flipCardId.includes(card.id) || isAllItemsDisables}
+                >
+                  {!flipCardId.includes(card.id) ? (
+                    // Show Footprint Image when not flipped
+                    <img
+                      src="https://res.cloudinary.com/dikncs8sp/image/upload/v1742221046/foot-print_1_1_umdcyf.png"
+                      alt="foot print"
+                      className="frontCard"
+                    />
+                  ) : (
+                    // Show Card Image when flipped
+                    <img src={card.image} alt={card.name} className="cardBtn" />
+                  )}
+                </button>
+              </li>
             ))}
           </div>
         </div>
@@ -217,13 +260,27 @@ class CardFlipPlayingView extends Component {
   }
 
   render() {
-    const {isPlayingViewDisplayed, score, noOfFlips} = this.state
+    const {
+      isPlayingViewDisplayed,
+      score,
+      noOfFlips,
+      cardsItems,
+      timer,
+    } = this.state
+    console.log('Score:', score)
+    console.log('Total Cards:', cardsItems.length)
+    console.log('Score * 2:', score * 2)
+    console.log('Timer:', timer)
+    console.log(
+      'Winning Condition:',
+      score * 2 === cardsItems.length && timer > 0,
+    )
     return isPlayingViewDisplayed === true ? (
       this.onPlayingViewEnabled()
     ) : (
       <CFResultsView
         onClickPlayAgain={this.onClickPlayAgain}
-        count={score}
+        status={score * 2 === cardsItems.length ? 'won' : 'lost'}
         flips={noOfFlips}
       />
     )

@@ -67,14 +67,12 @@ class EmojiGamePlayingView extends Component {
             <h1 className="navBarHeader">Emoji Game</h1>
           </div>
           <div className="scoreContainer">
-            <p>
-              Score: <span className="scoreValue">{score}</span>
-            </p>
+            <p>{`Score: ${score}`}</p>
           </div>
         </div>
         <div className="bottomContainer">
           <div className="backRulesContainer">
-            <div className="backBtnContainer">
+            <li className="backBtnContainer">
               <button
                 className="backContainer"
                 type="button"
@@ -83,13 +81,13 @@ class EmojiGamePlayingView extends Component {
                 <BiArrowBack className="arrowIcon" />
                 <h1 className="backContent">Back</h1>
               </button>
-            </div>
-            <div>
+            </li>
+            <li className="backBtnContainer">
               <DisplayRulesModal
                 ruleSet1={EmojiGameRuleSet}
                 setRulesColor="#334155"
               />
-            </div>
+            </li>
           </div>
           <ul className="allEmojiImgsContainer">
             {EmojisList.map(eachEmoji => (

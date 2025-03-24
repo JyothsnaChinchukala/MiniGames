@@ -83,14 +83,14 @@ const MMResultsView = props => {
           <p className="levelsTxt lastLevel">Level 15</p>
         </div>
       </div>
-      <h1 className="resultsViewHeader">Congratulations!</h1>
-      <p className="resultsViewPara">You have reached level {level}</p>
+      <h1 className="resultsViewHeader">Congratulations</h1>
+      <h1 className="resultsViewPara">You have reached level {level}</h1>
       <button
         className="MMStartPlayingBtn"
         type="button"
         onClick={onClickingPlayAgain}
       >
-        <span className="mmStartPlayingText">Play Again</span>
+        Play Again
       </button>
     </div>
   )

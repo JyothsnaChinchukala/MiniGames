@@ -1,5 +1,5 @@
 import {BiArrowBack} from 'react-icons/bi'
-// import {BsDot} from 'react-icons/bs'
+import {BsDot} from 'react-icons/bs'
 import {CFRuleSet1, CFRuleSet2} from '../../AllGameRules'
 import './index.css'
 
@@ -33,28 +33,26 @@ const CardFlipRulesView = props => {
       </div>
       <div className="rpsRulesContentContainer">
         <h1 className="rpsRulesText">Rules</h1>
-        <div className="rpsRulesContent">
-          <ul className="rpseachRuleSetContainer">
-            {CFRuleSet1.map(eachRule => (
-              <li key={eachRule.id} className="rpsEachRules">
-                <div className="rpsDotContainer">
-                  <p className="dotEl">.</p>
-                </div>
-                <p className="rpsEachRuleText">{eachRule.rule}</p>
-              </li>
-            ))}
-          </ul>
-          <ul className="rpseachRuleSetContainer">
-            {CFRuleSet2.map(eachRule => (
-              <li key={eachRule.id} className="rpsEachRules">
-                <div className="rpsDotContainer">
-                  <p className="dotEl">.</p>
-                </div>
-                <p className="rpsEachRuleText">{eachRule.rule}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+
+        <ul className="rpseachRuleSetContainer">
+          {CFRuleSet1.map(eachRule => (
+            <li key={eachRule.id} className="eachRules">
+              <div className="dotContainer">
+                <BsDot className="dotEl" />
+              </div>
+              <p className="cfEachRuleText">{eachRule.rule}</p>
+            </li>
+          ))}
+          {CFRuleSet2.map(eachRule => (
+            <li key={eachRule.id} className="eachRules">
+              <div className="dotContainer">
+                <BsDot className="dotEl" />
+              </div>
+              <p className="cfEachRuleText">{eachRule.rule}</p>
+            </li>
+          ))}
+        </ul>
+
         <button
           className="rpsStartPlayingBtn"
           type="button"

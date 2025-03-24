@@ -36,6 +36,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 0px;
+  padding-left: 0px;
 }
 .flipCountText {
   font-family: 'Roboto';
@@ -43,6 +45,11 @@
   font-weight: 500;
   font-size: 24px;
   color: #ffffff;
+  list-style-type: none;
+}
+.eachCardListItemm {
+  width: 100%;
+  height: 100%;
 }
 .timerVal {
   font-family: 'Roboto';
@@ -74,11 +81,17 @@
   height: 100%;
   background: transparent;
 }
-.eachCardListItem {
+.cardListWithButton {
   width: 15%;
   height: 18%;
   flex-grow: 1;
+  list-style-type: none;
   margin: 10px;
+}
+.eachCardListItem {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
   perspective: 1000px;
   transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -108,6 +121,9 @@
   width: 100%;
   height: 100%;
 }
+.backRulesListItem {
+  list-style-type: none;
+}
 .frontCard {
   position: absolute;
   width: 100%;
@@ -130,7 +146,7 @@
   .gameImgsContainer {
     width: 100%;
   }
-  .eachCardListItem {
+  .cardListWithButton {
     margin: 5px;
   }
 }

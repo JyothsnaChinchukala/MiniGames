@@ -9,7 +9,7 @@ const HomeRoute = () => (
         <li className="listItem">
           <img
             src="https://res.cloudinary.com/dikncs8sp/image/upload/v1740473984/Asset_1_4x_1_x5epar.jpg"
-            alt="emoji logo"
+            alt="emoji game"
             className="eachEmoji"
           />
           <p className="gameCardContent">Emoji Game</p>

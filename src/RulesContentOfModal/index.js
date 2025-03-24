@@ -3,6 +3,8 @@ import './index.css'
 const RulesContentOfModal = props => {
   const {ruleSet1, ruleSet2} = props
 
+  // const totalRules = [...ruleSet1, ...ruleSet2]
+
   const allRulesBgContainer = ruleSet2
     ? 'doubleRuleSetContainer'
     : 'singleRuleSetContainer'

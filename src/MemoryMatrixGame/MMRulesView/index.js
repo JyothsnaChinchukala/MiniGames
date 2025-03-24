@@ -1,6 +1,6 @@
 import {BiArrowBack} from 'react-icons/bi'
-// import {BsDot} from 'react-icons/bs'
-import {RpsRuleSet1, RpsRuleSet2} from '../../AllGameRules'
+import {BsDot} from 'react-icons/bs'
+import {MMRuleSet1, MMRuleSet2} from '../../AllGameRules'
 import './index.css'
 
 const MMRulesView = props => {
@@ -36,25 +36,35 @@ const MMRulesView = props => {
         <h1 className="rpsRulesText">Rules</h1>
         <div className="rpsRulesContent">
           <ul className="rpseachRuleSetContainer">
-            {RpsRuleSet1.map(eachRule => (
+            {MMRuleSet1.map(eachRule => (
               <li key={eachRule.id} className="rpsEachRules">
-                <div className="rpsDotContainer">
-                  <p className="dotEl">.</p>
+                <div className="dotContainer">
+                  <BsDot className="dotEl" />
+                </div>
+                <p className="rpsEachRuleText">{eachRule.rule}</p>
+              </li>
+            ))}
+            {MMRuleSet2.map(eachRule => (
+              <li key={eachRule.id} className="rpsEachRules">
+                <div className="dotContainer">
+                  <BsDot className="dotEl" />
                 </div>
                 <p className="rpsEachRuleText">{eachRule.rule}</p>
               </li>
             ))}
           </ul>
+          {/*
           <ul className="rpseachRuleSetContainer">
-            {RpsRuleSet2.map(eachRule => (
+            {MMRuleSet2.map(eachRule => (
               <li key={eachRule.id} className="rpsEachRules">
-                <div className="rpsDotContainer">
-                  <p className="dotEl">.</p>
+                <div className="dotContainer">
+                  <BsDot className="dotEl" />
                 </div>
                 <p className="rpsEachRuleText">{eachRule.rule}</p>
               </li>
             ))}
-          </ul>
+          </ul>{' '}
+          */}
         </div>
         <button
           className="MMStartPlayingBtn"
