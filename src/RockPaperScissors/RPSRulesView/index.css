@@ -151,7 +151,7 @@
 }
 .rpsRulesContentContainer {
   width: 100%;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -198,7 +198,6 @@
 
   /* Inside auto layout */
   flex: none;
-  order: 2;
   flex-grow: 0;
 }
 .rpsRulesContent {
@@ -208,6 +207,7 @@
   width: 100%;
   height: 80%;
   order: 1;
+  overflow-y: auto;
 }
 .rpseachRuleSetContainer {
   width: 100%;

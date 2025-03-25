@@ -28,7 +28,7 @@
   line-height: 65px;
   color: #ffffff;
 }
-.rpsRulesWithImgsContainer {
+.rpsRulesWithImgsContainerr {
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -53,8 +53,7 @@
   .rpsRulesViewHeader1 {
     font-size: 32px;
   }
-  .rpsRulesWithImgsContainer {
+  .rpsRulesWithImgsContainerr {
     width: 70%;
-    height: 45%;
   }
 }

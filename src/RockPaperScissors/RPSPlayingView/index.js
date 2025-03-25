@@ -127,7 +127,7 @@ class RPSPlayingView extends Component {
       <div className="rpsPlayingViewBottomContainer">
         <h1 className="rpsRulesViewHeader">ROCK PAPER SCISSOR</h1>
         <h1 className="rpsRulesViewHeader1">Let&#39;s pick</h1>
-        <div className="rpsRulesWithImgsContainer">
+        <div className="rpsRulesWithImgsContainerr">
           <div className="container1">
             <button
               type="button"

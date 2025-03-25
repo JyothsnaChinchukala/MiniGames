@@ -65,7 +65,7 @@
 .lossViewContainer {
   /* Rectangle 528 */
   width: 80%;
-  height: 60%;
+  height: 80%;
   display: flex;
   background: rgba(255, 255, 255, 0.2);
   border: 3px solid rgba(255, 255, 255, 0.19);
@@ -102,7 +102,6 @@
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 32px;
   /* identical to box height, or 133% */
   text-align: center;
 
@@ -116,7 +115,6 @@
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
-  line-height: 64px;
   /* identical to box height, or 133% */
   text-align: center;
   margin-top: 0px;
@@ -131,7 +129,7 @@
   border-radius: 20px;
   cursor: pointer;
   color: #3d3d3d;
-  font-size: 22px;
+  font-size: 18px;
 }
 .lossViewImgContainer {
   width: 40%;
