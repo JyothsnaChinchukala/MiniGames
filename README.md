@@ -1,321 +1,277 @@
-In this project let's build a **Mini Games** by applying the concepts we have learned till now. This project allows you to practice the concepts and techniques learned till React Course and apply them in a concrete project.
+# 🎮 MiniGames Collection
 
-You will demonstrate your skills by creating an app that will fetch data from an internal server using a class component, displaying that data, using **component lifecycle** methods, **routing** concepts, and adding responsiveness to the website.
+A comprehensive React-based gaming platform featuring four interactive mini-games: Emoji Game, Rock Paper Scissors, Memory Matrix, and Card-Flip Memory Game. Built with modern React patterns, responsive design, and engaging gameplay mechanics.
 
-This is an individual assessment. All work must be your own. You will also be given feedback by code reviewers after your project submission.
+![React](https://img.shields.io/badge/React-17.0.1-blue.svg)
+![React Router](https://img.shields.io/badge/React_Router-5.3.0-red.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg)
+
+## 🎯 Live Demo
+
+[View Live Demo](https://jyothsnachinchukala.github.io/MiniGames) <!-- Update with actual deployment URL -->
+
+## ✨ Features
+
+### 🎪 Game Collection
+
+#### 🎭 Emoji Game
+- **Objective**: Click on unique emojis without repeating any selection
+- **Scoring**: Score increases with each unique emoji clicked (max 12 points)
+- **Game Over**: Clicking the same emoji twice ends the game
+- **Features**: Dynamic emoji shuffling, score tracking, win/loss feedback
+
+#### ✂️ Rock Paper Scissors  
+- **Objective**: Beat the computer in the classic hand game
+- **Mechanics**: Rock beats Scissors, Scissors beats Paper, Paper beats Rock
+- **Scoring**: Win (+1), Lose (-1), Draw (0 change)
+- **Features**: Random computer choices, visual result feedback, score persistence
+
+#### 🧠 Memory Matrix
+- **Objective**: Memorize and recreate highlighted patterns in increasing grid sizes
+- **Progression**: Starts with 3x3 grid (3 highlighted cells), increases with each level
+- **Timing**: N seconds to memorize, N seconds to recreate (where N = grid size)
+- **Features**: Progressive difficulty (up to 15 levels), visual feedback, progress tracking
+
+#### 🃏 Card-Flip Memory Game
+- **Objective**: Match all animal/bird pairs before the 2-minute timer expires
+- **Mechanics**: Flip two cards at a time, matches stay revealed, mismatches flip back
+- **Scoring**: Successful matches increase score, flip count tracking
+- **Features**: 120-second countdown, card shuffling, visual flip animations
+
+### 🚀 Technical Features
+- **Responsive Design**: Optimized for mobile, tablet, and desktop viewing
+- **React Router**: Seamless navigation between games and game states
+- **Component Architecture**: Modular structure with Rules, Playing, and Results views
+- **State Management**: Efficient React hooks and class component state handling
+- **Performance Optimized**: Proper cleanup of timers and event listeners
+- **Accessibility**: ARIA labels and semantic HTML structure
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 17.0.1, JavaScript ES6+
+- **Routing**: React Router DOM 5.3.0
+- **Styling**: CSS3 with responsive media queries, BEM methodology
+- **Icons**: React Icons (BiArrowBack, CgClose, BsDot)
+- **Progress**: RC Progress library for Memory Matrix results
+- **Utilities**: UUID for unique identifiers, Modal for rule displays
+- **Development**: ESLint, Prettier, Husky for code quality
+
+## 🚀 Quick Start
 
 ### Prerequisites
+- Node.js (^10.13 || 12 || 14 || 15)
+- PNPM (recommended) or NPM (>=6)
 
-#### UI Prerequisites
+### Installation
 
-<details>
-<summary>Click to view</summary>
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/JyothsnaChinchukala/MiniGames.git
+   cd MiniGames
+   ```
 
-- What is Figma?
-  - Figma is a vector graphics editor and prototyping tool which is primarily web-based. You can check more info on the <a href="https://www.figma.com/" target="_blank">website</a>
-- Create a Free account in Figma
-  - Kindly follow the instructions as shown in <a href="https://www.youtube.com/watch?v=hrHL2VLMl7g&t=37s" target="_blank">this</a> video to create a free Figma account. Watch the video upto **00:50**.
-- How to Check CSS in Figma?
-  - Kindly follow the instructions as shown in <a href="https://www.youtube.com/watch?v=B242nuM3y2s" target="_blank">this</a> video to check CSS in a Figma screen. Watch the video upto **02:45**.
-- Export Images in Figma screen
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   # or
+   npm install
+   ```
 
-  - Kindly follow the instructions as shown in <a href="https://www.youtube.com/watch?v=NpzL1MONwaw" target="_blank">this</a> video to export images from a Figma screen.
-  - Click on the Export button to get Export options as shown in the below image.
+3. **Start development server**
+   ```bash
+   pnpm start
+   # or
+   npm start
+   ```
 
-  <div style="text-align:center;margin:10px 0px 0px 45px;width:200px;">
-    <img src="https://assets.ccbp.in/frontend/react-js/figma-export-option.png" />
-  </div>
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
 
-- Upload your exported images from Figma to Cloudinary and get image URLs from Cloudinary. Refer <a href="https://learning.ccbp.in/projects/course?c_id=fe4c935d-3ad5-4bb8-a1a5-9b045ae70010&s_id=2f72d6fe-09a7-4c0a-b0db-196740c853a0&t_id=6535e48d-fb4e-45c4-9654-3da423c79e26" target="_blank">this</a> session for better understanding.
+## 📁 Project Architecture
 
-</details>
-
-#### Design Files
-
-<details>
-<summary>Click to view</summary>
-
-- You can check the **Design Files** for different devices <a href="https://www.figma.com/file/0Xb6dvddTvmVuzm6Ku1YL3/Mini-Games?node-id=0%3A1" target="_blank">here</a>
-
-</details>
-
-### Set Up Instructions
-
-<details>
-<summary>Click to view</summary>
-
-- Download dependencies by running `npm install`
-- Start up the app using `npm start`
-
-</details>
-
-### Completion Instructions
-
-<details>
-<summary>Functionality to be added</summary>
-<br/>
-The app must have the following functionalities
-
-- Home Route
-  - Users should be able to see the list of all games.
-  - Users should be able to play any of the games by clicking any of the games.
-- When the user clicks on the `Back` button in any of the four games, then the page should be navigated to the Home Route.
-- Emoji Game Route
-  - When the user clicks on the **Emoji Game** card, then the user should be navigated to the Game Rules View of the game.
-  - On the Game Rules View, users should be able to see the Rules of Emoji Game.
-  - When the user clicks on the `Start playing` button, then the user should be able to play the Emoji Game.
-  - On the Game Playing View, the user should be able to see the `Rules` button.
-  - Initially, the score displayed should be 0.
-  - When the user clicks on the `Rules` button, it should trigger a modal, and the rules should be displayed.
-  - Click here to understand the <a href="https://assets.ccbp.in/frontend/content/react-js/emoji-game-rules-v2.jpg" target="_blank">Emoji Game Rules</a>
-  - In the Game Results View, when the `Play Again` button is clicked, then the user should be navigated to the Game Playing View where the user should be able to play the Emoji game.
-  - Below is the example of **Emoji Game**
-
-<br/>
-<div style="text-align: center;">
-    <img src="https://assets.ccbp.in/frontend/content/react-js/emoji-game-output-v2.gif" alt="emoji game output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
-</div>
-<br/>
-- Rock Paper Scissors Route
-  - When the user clicks on the **Rock Paper Scissors** card, then the user should be navigated to the Game Rules View of the game.
-  - On the Game Rules View, users should be able to see the Rules of Rock Paper Scissors Game.
-  - When the user clicks on the `Start playing` button, then the user should be able to play the Rock Paper Scissors game.
-  - On the Game Playing View, the user should be able to see the `Rules` button.
-  - When the user clicks on the `Rules` button, it should trigger a modal, and the rules should be displayed.
-  - When the user clicks on any of the three buttons (rock/paper/scissors), then the Game Results View should be displayed by comparing with computer choice.
-  - In the Game Results View, the computer choice should be generated randomly.
-  - Click here to understand the <a href="https://assets.ccbp.in/frontend/content/react-js/rock-paper-scissor-rules-v2.jpg" target="_blank" >Rock Paper Scissor Rules</a>
-  - In the Game Results View, when the `Play Again` button is clicked, then the user should be navigated to the Game Playing View where the user should be able to play the Rock Paper Scissor game.
-  - Below is the example of **Rock Paper Scissors Game**
-
- <br/>
- <div style="text-align: center;">
-     <img src="https://assets.ccbp.in/frontend/content/react-js/rock-paper-scissors-output.gif" alt="emoji game output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
- </div>
- <br/>
- 
-- Memory Matrix Route
-  - When the user clicks on the **Memory Matrix** card, then the user should be navigated to the Game Rules View of the game.
-  - On the Game Rules View, users should be able to see the Rules of Memory Matrix game.
-  - When the user clicks on the `Start playing` button, then the user should be able to play the Memory Matrix game.
-  - On the Game Playing View, the user should be able to see the `Rules` button.
-  - When the user clicks on the `Rules` button, it should trigger a modal, and the rules should be displayed.
-  - Click here to understand the <a href="https://assets.ccbp.in/frontend/content/react-js/memory-matrix-rules.jpg" target="_blank" >Memory Matrix Game Rules</a>.
-  - <a href="https://www.npmjs.com/package/rc-progress" target="_blank">Progress bar</a> should be displayed in the Game Results View based on the user completion level
-  - In the Game Results View, when the `Play Again` button is clicked, then the user should be navigated to the Game Playing View where the user should be able to play the Memory Matrix game.
-  - Below is the example of **Memory Matrix Game**
-  
- <br/>
- <div style="text-align: center;">
-     <img src="https://new-assets.ccbp.in/frontend/content/react-js/minigames-miniproject/memory-matrix-output.png" alt="memory matrix game output" style="max-width:70%;max-height:100%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
- </div>
- <br/>
-  
-- Card-Flip Memory Game Route
-  - When the user clicks on the **Card-Flip Memory Game** card, then the user should be navigated to the Game Rules View of the game.
-  - On the Game Rules View, users should be able to see the Rules of Card-Flip Memory Game.
-  - When the user clicks on the `Start playing` button, then the user should be able to play the Card-Flip Memory Game.
-  - On the Game Playing View, the user should be able to see the `Rules` button.
-  - Initially, the score displayed should be 0.
-  - When the user clicks on the `Rules` button, it should trigger a modal, and the rules should be displayed.
-  - Click here to understand the <a href="https://assets.ccbp.in/frontend/content/react-js/card-flip-rules.jpg" target="_blank" >Card-Flip Memory Game Rules</a>.  
-  - In the Game Results View, when the `Play Again` button is clicked, then the user should be navigated to the Game Playing View where the user should be able to play the Card-Flip Memory game.
-  - Below is the example of **Card-Flip Memory Game**
-
- <br/>
- <div style="text-align: center;">
-     <img src="https://assets.ccbp.in/frontend/content/react-js/card-flip-memory-game-output.gif" alt="memory matrix game output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
- </div>
- <br/>
-  
-- Users should be able to view and use the website responsively on a mobile, tablet, desktop devices.
-
-</details>
-
-### Quick Tips
-
-<details>
-<summary>Click to view</summary>
-
-- You can use React Modal third party library to display modal.
-  - react-modal <a href="https://www.npmjs.com/package/react-modal" target="_blank">Documentation</a>
-- You can use RC Progress third party library for showing the progress bar.
-  - rc-progress <a href="https://www.npmjs.com/package/rc-progress" target="_blank">Documentation</a>
-- You can use Math.floor() function that returns the largest integer less than or equal to a given number
-
-```js
-console.log(Math.floor(5.95)) // output: 5
+```
+MiniGames/
+├── src/
+│   ├── App.js                     # Main routing configuration
+│   ├── App.css                    # Global styles
+│   ├── AllGamesImages.js          # Centralized image data (emojis, choices, cards)
+│   ├── AllGameRules.js            # Game rules configuration
+│   ├── HomeRoute/                 # Landing page with game selection
+│   ├── EmojiGame/
+│   │   └── EmojiGameRoute/
+│   │       ├── EmojiCard/         # Individual emoji component
+│   │       ├── EmojiGameRulesView/
+│   │       ├── EmojiGamePlayingView/
+│   │       ├── EmojiGameWonView/
+│   │       └── EmojiGameLossView/
+│   ├── RockPaperScissors/
+│   │   ├── RPSRulesView/
+│   │   ├── RPSPlayingView/
+│   │   └── RPSResultsView/
+│   ├── MemoryMatrixGame/
+│   │   ├── MMRulesView/
+│   │   ├── MMPlayingView/
+│   │   └── MMResultsView/
+│   ├── CardFlipGame/
+│   │   ├── CardFlipRulesView/
+│   │   ├── CardFlipPlayingView/
+│   │   └── CFResultsView/
+│   ├── DisplayRulesModal/         # Reusable modal component
+│   └── RulesContentOfModal/       # Modal content wrapper
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   └── img/                       # Favicon and logos
+├── package.json
+└── README.md
 ```
 
-</details>
+## �� Game Mechanics Deep Dive
+
+### Emoji Game Implementation
+- **State Management**: Tracks score, selected emojis, game status
+- **Shuffling Algorithm**: Fisher-Yates shuffle for random emoji order
+- **Win Condition**: Score reaches 12 (all unique emojis clicked)
+- **Loss Condition**: Same emoji clicked twice
+
+### Rock Paper Scissors Logic
+```javascript
+// Game logic implementation
+const rpsRules = [
+  { id: 'rock', beats: 'scissor' },
+  { id: 'paper', beats: 'rock' },
+  { id: 'scissor', beats: 'paper' }
+];
+```
+
+### Memory Matrix Algorithm
+- **Grid Generation**: Dynamic NxN matrix based on current level
+- **Random Selection**: N cells randomly highlighted per level
+- **Timer Management**: Precise timing for memorization and input phases
+- **Progress Tracking**: Visual progress bar using RC Progress library
+
+### Card-Flip Memory System
+- **Card Duplication**: Creates pairs from 10 unique animal cards
+- **Shuffle Implementation**: Ensures random card placement each game
+- **Match Detection**: Compares card names for successful pairs
+- **Timer Integration**: 120-second countdown with game state management
+
+## 🔧 Available Scripts
+
+```bash
+# Development
+pnpm start          # Start development server
+pnpm build          # Build for production
+pnpm test           # Run test suite
+
+# Code Quality
+pnpm lint           # Run ESLint
+pnpm lint:fix       # Fix ESLint issues automatically
+pnpm format         # Format code with Prettier
+pnpm run-all        # Run tests and linting in parallel
+```
+
+## 🎨 Design & Styling
+
+### Color Scheme
+- **Primary**: #467AFF (Blue) - Used for buttons and highlights
+- **Backgrounds**: Game-specific gradients (#223A5F, #14332E, etc.)
+- **Text**: #FFFFFF (White) for contrast
+- **Success**: #00C851 (Green) for wins
+- **Error**: #FF4444 (Red) for losses
+
+### Responsive Breakpoints
+```css
+@media screen and (max-width: 678px) {
+  /* Mobile-specific styles */
+}
+```
+
+### Component Styling
+- **BEM Methodology**: Block__Element--Modifier naming convention
+- **CSS Custom Properties**: Consistent spacing and typography
+- **Flexbox Layout**: Responsive grid systems for game boards
+
+## 🧪 Testing Strategy
+
+The project includes comprehensive test coverage for:
+- **Component Rendering**: Ensuring UI elements display correctly
+- **Game Logic**: Validating scoring, win/loss conditions
+- **User Interactions**: Testing click handlers and state changes
+- **Timer Functions**: Verifying countdown and timeout behaviors
+
+## 🚀 Deployment
+
+### GitHub Pages (Automated)
+```bash
+# Build and deploy
+pnpm build
+pnpm deploy  # Uses gh-pages package
+```
+
+### Manual Deployment
+1. Run `pnpm build` to create production build
+2. Deploy `build/` folder to your hosting service
+3. Ensure proper routing configuration for SPA
+
+## 📊 Performance Optimizations
+
+- **Code Splitting**: Route-based splitting for faster initial load
+- **Image Optimization**: Cloudinary CDN for all game assets  
+- **Memory Management**: Proper cleanup of timers and event listeners
+- **Bundle Size**: Optimized dependencies and tree shaking
+
+## 🔮 Future Enhancements
+
+- [ ] **Local Storage**: Save high scores and game progress
+- [ ] **Sound Effects**: Audio feedback for game actions
+- [ ] **Difficulty Levels**: Customizable game difficulty settings
+- [ ] **Multiplayer Mode**: Real-time multiplayer capabilities
+- [ ] **Statistics Dashboard**: Detailed performance analytics
+- [ ] **Theme Customization**: Dark/Light mode toggle
+- [ ] **Achievement System**: Unlock badges and rewards
 
-### Important Note
+## 🤝 Contributing
 
-Below Instructions are needed to pass the test cases.
+We welcome contributions! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-<details>
-<summary>Click to view</summary>
+### Development Workflow
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and test thoroughly
+4. Commit using conventional commits: `git commit -m 'feat: add amazing feature'`
+5. Push to your fork: `git push origin feature/amazing-feature`
+6. Create a Pull Request
 
-- **Note:**
+## 📝 License
 
-  - For Mini Projects, you have to use normal HTML elements to style the React Components. Usage of `styled-components` (CSS in JS) to style React components are not supported in Mini Projects. Test cases won't be passed, if you use styled-components.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-  - Refer to the below Example for the usage of data-testid in the HTML elements.
-    - Example: `<p data-testid="timer"></p>`.
+## 👥 Authors
 
-- Routes:
+- **Jyothsna Chinchukala** - *Initial work* - [@JyothsnaChinchukala](https://github.com/JyothsnaChinchukala)
 
-  - The `Home` route should consist of `/` in the URL path
+## 🙏 Acknowledgments
 
-  - The `Emoji Game` route should consist of `/emoji-game` in the URL path
+- React team for the robust framework
+- React Icons for the comprehensive icon library
+- RC Progress for the progress bar component
+- Cloudinary for reliable image hosting
+- React Testing Library for testing utilities
 
-  - The `Memory Matrix` route should consist of `/memory-matrix` in the URL path
+## 📞 Support
 
-  - The `Rock Paper Scissor` route should consist of `/rock-paper-scissor` in the URL path
+For questions, bug reports, or feature requests:
 
-  - The `Card-Flip Memory Game` route should consist of `/card-flip-memory-game` in the URL path
+- 🐛 **Issues**: [GitHub Issues](https://github.com/JyothsnaChinchukala/MiniGames/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/JyothsnaChinchukala/MiniGames/discussions)
+- 📧 **Contact**: Create an issue for direct communication
 
-- Home:
+---
 
-  - The Emoji Game image should consist of alt attribute value as `emoji game`
-
-  - The Memory Matrix image should consist of alt attribute value as `memory matrix`
-
-  - The Rock Paper Scissor image should consist of alt attribute value as `rock paper scissor`
-
-  - The Card-Flip Memory Game image should consist of alt attribute value as `card flip memory game`
-
-- Emoji Game Route:
-
-  - The Emoji image in Navbar should consist of alt attribute value as `emoji logo`.
-
-  - The Emoji Game image in the Game Rules View should consist of alt attribute value as `emoji game`.
-
-  - The `BiArrowBack` icon from react-icons should be used for the **Back Icon** button.
-
-  - The Close button in the modal should consist of the data-testid attribute value as `close`.
-
-  - The `CgClose` icon from react-icons should be used for the **Close Icon** button.
-
-  - The Emoji images in the game should consist of alt attribute value as shown in the given below image with appropriate text in the `emojisArray`.
-
-  - <img src="https://new-assets.ccbp.in/frontend/content/react-js/minigames-miniproject/emoji-game-emojis.png" alt="emoji names" style="width:400px, height:400px" />
-
-    ```js
-    const emojisArray = ['face with laughing', 'face with stuck out tongue', 'face with hugs', 'face with silence', 'grinning face', 'smiling face with heart eyes', 'grinning face with sweat', 'face with head bandage', 'face with stuck out tongue and winked eye', 'face with mask', 'smiling face with star eyes', 'laughing face with hand in front of mouth']
-    ```
-
-  - The Emoji image in the GameResultView when the game is in the won state should consist of alt attribute value as `won`.
-
-  - The Emoji image in the GameResultView when the game is in the lose state should consist of alt attribute value as `lose`.
-
-- Rock Paper Scissor Route:
-
-  - The `BiArrowBack` icon from react-icons should be used for the **Back Icon** button.
-
-  - The Rock Paper Scissor image in the Game Rules View should consist of alt attribute value as `rock paper scissor`.
-
-  - The game playing state should consist of three HTML button elements with the data-testid attribute values as `rockButton`, `scissorButton`, and `paperButton` respectively.
-
-  - The game playing state should consist of three HTML image elements with alt attribute values as `rock`, `scissor`, and `paper` respectively.
-
-  - The Close button in the modal should consist of the data-testid attribute value as `close`.
-
-  - The `CgClose` icon from react-icons should be used for the **Close Icon** button.
-
-  - Won state in the GameResultView should consist of two HTML image elements with alt attribute values as `won emoji` and `Smiling face with star eyes` respectively.
-
-  - Draw state in the GameResultView should consist of two HTML image elements with alt attribute values as `draw emoji` and `Face without mouth` respectively.
-
-  - Loss state in the GameResultView should consist of two HTML image elements with alt attribute values as `lose emoji` and `Frowning face` respectively.
-
-  - The GameResultView should consist of two HTML image elements with any of the two alt attribute values of `rock`, `paper` and `scissor` with appropriate `You` and `Opponent` choice in the game playing state.
-
-- Memory Matrix Route:
-
-  - The `BiArrowBack` icon from react-icons should be used for the **Back Icon** button.
-
-  - The `N` highlighted buttons in each level of the Memory Matrix should consist of the data-testid attribute value as `highlighted`, where N starts from 3.
-
-  - The `N * N - N` not highlighted buttons in each level of the Memory Matrix should consist of the data-testid attribute value as `notHighlighted`, where N starts from 3.
-
-  - The Close button in the modal should consist of the data-testid attribute value as `close`.
-
-  - The `CgClose` icon from react-icons should be used for the **Close Icon** button.
-
-  - The Emoji images in the GameResultView should consist of alt attribute value as shown in the given below image with appropriate text in the `emojisArray`.
-
-  - <img src="https://new-assets.ccbp.in/frontend/content/react-js/minigames-miniproject/memory-matrix-emojis.png" alt="emoji names" style="width:400px, height:400px" />
-
-  ```js
-  const emojisArray = ['neutral face', 'grimacing face', 'slightly smiling face', 'grinning face with big eyes', 'grinning face with smiling eyes', 'beaming face with smiling eyes', 'grinning face', 'smiling face with sunglasses']
-  ```
-
-- Card-Flip Memory Game Route:
-
-  - The `BiArrowBack` icon from react-icons should be used for the **Back Icon** button.
-
-  - The animals and birds images in the game should consist of alt attribute values from the `cartData` given in the `App.js` file.
-
-  - The data-testid attribute value of each button in the game is the alt attribute value of the image in the button which is given in the `App.js` file.
-
-  - The Close button in the modal should consist of the data-testid attribute value as `close`.
-
-  - The `CgClose` icon from react-icons should be used for the **Close Icon** button.
-
-  - The Emoji image in the GameResultView when the game is in the won state should consist of alt attribute value as `grinning face with big eyes`.
-
-  - The Emoji image in the GameResultView when the game is in the lose state should consist of alt attribute value as `neutral face`.
-
-</details>
-
-### Stretch Goals
-
-If you complete the main features of the project you can try out the below features as well.
-
-**Note:** Just a reminder the additional functionality is just extra practice using the tools we have learned. These are not required. If you do not reach the stretch goals, don't worry.
-
-<details>
-<summary>Click to view the additional functionality that can be added</summary>
-
-- Emoji Game Route:
-
-  - Add `Top Score` to the game.
-  - Initially, the `Top Score` displayed should be 0.
-  - When the game is over, If the user has scored 9 then the `Top Score` should be displayed as 9.
-  - This process should be repeated whenever the user score crosses the `Top Score`.
-  - Maintain the `Top Score` in Local Storage.
-
-- Rock Paper Scissor Route:
-
-  - In the result view of the game, the winner should be highlighted.
-
-- Memory Matrix Route:
-
-  - Add `Max Level` to the game.
-  - Initially, the `Max Level` displayed should be 0.
-  - When the game is over, If the user level is 3 then the `Max Level` should be displayed as 3.
-  - This process should be repeated whenever the user level is crossed the `Max Level`.
-  - Maintain the `Max Level` in Local Storage.
-
-- Card-Flip Memory Game Route:
-
-  - Add `Lowest Flip Count` to the game.
-  - Initially, the `Lowest Flip Count` displayed should be 0.
-  - When the game is over, if the user Card Flips count is 15 then the `Lowest Flip Count` should be displayed as 15.
-  - This process should be repeated whenever the user card flips are lesser than the `Lowest Flip Count`.
-  - Maintain the `Lowest Flip Count` in Local Storage.
-
-</details>
-
-### Project Submission Instructions
-
-- For Mini Projects, you can submit the test cases at your own pace. But we suggest you to submit the code to know the percentage of completion through test cases and that score will be considered for your interviews.
-
-- Also it's important to publish your code frequently using `Step - 4` in the Instructions tab.
-
-> ### _Things to Keep in Mind_
->
-> - All components you implement should go in the `src/components` directory.
-> - **Do not remove the pre-filled code**
-> - Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
+<div align="center">
+  <strong>Built with ❤️ using React</strong>
+  <br>
+  <sub>A modern gaming experience in your browser</sub>
+</div>
