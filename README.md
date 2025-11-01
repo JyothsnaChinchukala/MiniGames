@@ -238,7 +238,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Jyothsna Chinchukala**
 - GitHub: [@JyothsnaChinchukala](https://github.com/JyothsnaChinchukala)
-- LinkedIn: [Connect with me](https://linkedin.com/in/jyothsna-chinchukala)
+- LinkedIn: www.linkedin.com/in/jyothsna29
+
 
 ## 🙏 Acknowledgments
 
